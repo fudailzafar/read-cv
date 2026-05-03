@@ -1,1 +1,37 @@
-node_modules
+# Dependencies
+node_modules/
+pnpm-lock.yaml
+
+# Next.js
+.next/
+out/
+dist/
+
+# Build outputs
+build/
+*.log
+
+# Environment variables
+.env
+.env.production
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor settings
+.vscode/
+.idea/
+*.swp
+*~
+.eslintcache
+
+# Temporary files
+tmp/
+temp/
+
+# Testing
+coverage/
+
+# Prisma
+prisma/.migrate
