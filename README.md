@@ -1,4 +1,4 @@
-# Structra - Minimal Portfolio Template
+# ReadCV Template
 
 A highly minimal, production-ready, and fully customizable personal portfolio template.
 
