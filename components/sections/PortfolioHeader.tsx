@@ -5,8 +5,8 @@ export default function PortfolioHeader() {
   const { header } = siteContent;
 
   return (
-    <header className="mb-10 flex items-center gap-6">
-      <div className="relative w-20 h-20 flex-shrink-0 overflow-hidden rounded-full">
+    <header className="mb-12 flex items-center gap-5">
+      <div className="relative size-24 shrink-0 rounded-full overflow-hidden">
         <Image
           src={header.avatar || "/profile-avatar.png"}
           alt={header.name}
@@ -15,15 +15,15 @@ export default function PortfolioHeader() {
           priority
         />
       </div>
-      <div>
-        <h1 className="text-2xl font-normal text-text leading-[1.2]">
+      <div className="flex flex-col">
+        <h1 className="text-[26px] font-normal text-text leading-[1.2]">
           {header.name}
         </h1>
-        <p className="text-base text-[#6B6B6B] mt-1">
+        <p className="text-[15px] text-[#6B6B6B] mt-1 leading-snug">
           {header.role}
         </p>
         {header.website && (
-          <span className="inline-block text-sm text-[#6B6B6B] bg-[#F1F1F1] rounded-full px-3 py-1.5 mt-2">
+          <span className="inline-block self-start text-sm text-[#7A7A7A] bg-[#F3F3F3] rounded-full px-3 py-1 mt-2">
             {header.website}
           </span>
         )}

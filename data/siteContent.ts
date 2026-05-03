@@ -35,7 +35,7 @@ export const siteContent = {
       location: 'Providence, RI'
     },
     {
-      institution: 'University of California, Berkeley',
+      institution: 'UC, Berkeley',
       degree: 'Summer Program in Interaction Design',
       period: '2016 — 2016',
       location: 'Berkeley, CA'

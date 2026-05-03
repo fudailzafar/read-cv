@@ -14,10 +14,10 @@ export default function ProfileView({ posts }: { posts: BlogPostMetadata[] }) {
       <PortfolioHeader />
       <About />
       <WorkExperience />
+      <Writing posts={posts} />
       <Speaking />
       <SideProjects />
       <Education />
-      <Writing posts={posts} />
       <Contact />
     </div>
   );

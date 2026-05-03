@@ -1,36 +1,41 @@
-# ReadCV Template
+# read.cv template
 
-A highly minimal, production-ready, and fully customizable personal portfolio template.
+A minimal, open-source portfolio template inspired by [read.cv](https://read.cv) — built for designers and developers who want a clean, editorial digital presence.
 
 ![Preview](./public/demo.png)
 
-## Description
+---
 
-This project provides a clean, editorial, digital CV layout inspired by modern design profiles. It serves as a beautiful, calm, and premium digital resume that puts content clarity and typography first. Everything is designed to be easily extensible and fully customizable through a single data file.
+## What is this?
 
-## Features
+This is a fully functional read.cv-style profile template. It gives you a calm, structured, text-first personal page — no flashy animations, no heavy UI frameworks, just clean hierarchy and good typography.
 
-- **Single-file Content System**: Manage all your profile data, work experience, projects, and writing in one centralized configuration file.
-- **Built with Next.js & React**: Leverages the Next.js App Router for optimal performance, server-rendering, and seamless routing.
-- **Tailwind CSS Styling**: Utility-first CSS framework used exclusively to define layout, typography, and spacing.
-- **Framer Motion**: Subtle, premium page transitions and interactive micro-animations.
-- **Responsive Design**: Beautiful mobile layout that preserves structural integrity on smaller screens.
-- **Clean UI System**: Follows a strict, harmonious design rhythm with a focus on generous vertical spacing.
-- **Easy Customization**: Simple structure that developers of any level can easily pick up and modify.
+Sections included out of the box:
+
+- **About** — a short personal bio
+- **Work Experience** — company, role, and years
+- **Education** — degree and institution
+- **Speaking** — conference talks with location
+- **Side Projects** — personal builds and experiments
+- **Writing** — powered by a Markdown file-system CMS
+- **Contact** — structured social links grid
+
+---
 
 ## Tech Stack
 
 | Technology | Purpose |
-|------------|---------|
-| Next.js | React Framework (App Router) |
-| React | UI Library |
-| TypeScript | Static Typing |
-| Tailwind CSS | Styling & Utility Classes |
-| Framer Motion | Animations & Transitions |
+|---|---|
+| Next.js 14 | App Router, static generation |
+| TypeScript | Type safety throughout |
+| Tailwind CSS | All styling, zero custom CSS |
+| Framer Motion | Subtle page transitions |
+| gray-matter | Markdown frontmatter parsing |
+| remark | Markdown → HTML rendering |
+
+---
 
 ## Getting Started
-
-Follow these steps to run the template locally:
 
 ```bash
 git clone https://github.com/fudailzafar/read-cv.git
@@ -39,40 +44,98 @@ pnpm install
 pnpm dev
 ```
 
-The server will start on `http://localhost:3000`.
+Open `http://localhost:3000`.
 
-## Project Structure
-
-```text
-.
-├── app/                  # Next.js App Router layouts, pages, and global CSS
-├── components/           # Reusable UI components and page sections
-├── data/                 # Centralized content structure (siteContent.ts)
-├── public/               # Static assets and images
-└── next.config.mjs       # Next.js configuration
-```
+---
 
 ## Customization
 
-You do not need to hunt through component files to update the site's content. All text, links, and portfolio items are stored centrally in the `/data/siteContent.ts` file. 
+### Profile, Experience & Sections
 
-To edit your profile:
-1. Open `data/siteContent.ts`.
-2. Modify the strings, arrays, or objects directly to replace the placeholder data.
-3. The UI will instantly reflect your changes.
+All content is managed from a single file:
 
-To customize theme colors, navigate to `app/globals.css` and adjust the CSS variables under the root scope.
+```
+data/siteContent.ts
+```
+
+Edit your name, bio, experience, education, speaking engagements, side projects, and contact links here. No component editing needed.
+
+### Writing / Blog
+
+Blog posts are plain Markdown files stored in:
+
+```
+content/blog/
+```
+
+Create a new post by adding a `.md` file:
+
+```md
+---
+title: "Post Title"
+date: "2025-01-01"
+description: "A short summary."
+tags: ["design"]
+---
+
+Your content here.
+```
+
+The filename becomes the URL slug automatically.
+
+### Work / Projects
+
+Case studies and project pages live in:
+
+```
+content/work/
+```
+
+Same Markdown format as blog posts — add a file, it appears at `/work/[slug]`.
+
+### Profile Image
+
+Replace `/public/profile-avatar.png` with your own photo. Keep it square for best results with the circular crop.
+
+### Theme
+
+Adjust CSS variables in `app/globals.css`:
+
+```css
+--color-bg: #FAFAFA;
+--color-text: #111111;
+--color-muted: #777777;
+```
+
+---
+
+## Project Structure
+
+```
+.
+├── app/                  # Next.js App Router (pages, layout, global CSS)
+├── components/
+│   ├── sections/         # Profile sections (About, WorkExperience, Writing…)
+│   └── ui/               # Shared primitives (FadeIn, Section, Container…)
+├── content/
+│   ├── blog/             # Markdown blog posts
+│   └── work/             # Markdown case studies
+├── data/
+│   └── siteContent.ts    # All profile content in one place
+├── lib/
+│   ├── blog.ts           # Blog parsing utilities
+│   └── work.ts           # Work parsing utilities
+└── public/               # Static assets
+```
+
+---
 
 ## Deployment
 
-The simplest way to deploy your portfolio is to use the [Vercel Platform](https://vercel.com/new).
+Push to GitHub, then deploy instantly on [Vercel](https://vercel.com/new) — no config needed. Vercel auto-detects Next.js.
 
-1. Push your code to a GitHub repository.
-2. Import the repository into Vercel.
-3. Vercel will automatically detect Next.js and deploy your project instantly without any additional configuration.
-
-For a manual build, simply run `npm run build` followed by `npm start`.
+---
 
 ## License
 
-Licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
+MIT — use it, fork it, make it yours. See [LICENSE](./LICENSE).

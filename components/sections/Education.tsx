@@ -14,9 +14,12 @@ export default function Education() {
               {edu.period}
             </span>
             <div>
-              <p className="text-base font-normal text-text leading-[1.4]">
+              <a
+                href="#"
+                className="relative inline-flex text-base font-normal text-text leading-[1.4] no-underline after:absolute after:left-0 after:bottom-[-2px] after:h-[1px] after:w-full after:bg-current after:opacity-0 hover:after:opacity-100 after:transition-opacity after:duration-200"
+              >
                 {edu.degree} at {edu.institution}
-              </p>
+              </a>
               <p className="text-sm text-[#7A7A7A] mt-1">
                 {edu.location}
               </p>
