@@ -14,11 +14,14 @@ export default function WorkExperience() {
               {exp.period}
             </span>
             <div>
-              <div className="flex items-baseline gap-1">
-                <p className="text-base font-normal text-text leading-[1.4]">
+              <div>
+                <a
+                  href="#"
+                  className="group relative inline-flex items-center gap-1 text-base font-normal text-text leading-[1.4] no-underline after:absolute after:left-0 after:bottom-[-2px] after:h-[1px] after:w-full after:bg-current after:opacity-0 hover:after:opacity-100 after:transition-opacity after:duration-200"
+                >
                   {exp.role} at {exp.company}
-                </p>
-                <span className="text-[10px] text-[#999]">↗</span>
+                  <span className="text-[10px] text-text opacity-60 group-hover:opacity-100 transition-opacity duration-200">↗</span>
+                </a>
               </div>
               <p className="text-sm text-[#7A7A7A] mt-1">
                 San Francisco, CA

@@ -15,12 +15,10 @@ export default function Writing({ posts }: { posts: BlogPostMetadata[] }) {
             <div>
               <Link
                 href={`/blog/${post.slug}`}
-                className="group inline-flex items-center gap-1.5 text-base font-normal text-text leading-[1.4]"
+                className="group relative inline-flex items-center gap-1 text-base font-normal text-text leading-[1.4] no-underline after:absolute after:left-0 after:bottom-[-2px] after:h-[1px] after:w-full after:bg-current after:opacity-0 hover:after:opacity-100 after:transition-opacity after:duration-200"
               >
                 {post.title}
-                <span className="text-[10px] text-[#999] opacity-60 group-hover:opacity-100 transition-opacity duration-150">
-                  ↗
-                </span>
+                <span className="text-[10px] text-text opacity-60 group-hover:opacity-100 transition-opacity duration-200">↗</span>
               </Link>
               {post.description && (
                 <p className="text-sm text-[#6B6B6B] mt-1 max-w-[520px]">

@@ -4,7 +4,7 @@ export default function Contact() {
   const { contact } = siteContent;
 
   return (
-    <section className="mt-16 pt-12 border-t border-black/5">
+    <section className="mt-16 pt-12">
       <h2 className="mb-6 text-[15px] font-normal text-text">
         Contact
       </h2>
@@ -20,7 +20,7 @@ export default function Contact() {
               className="flex items-center gap-1 text-sm text-text hover:underline underline-offset-4 decoration-1 decoration-black/20 transition-all w-fit"
             >
               {item.value}
-              <span className="text-[10px] text-[#999] translate-y-[0.5px]">↗</span>
+              <span className="text-[10px] text-text translate-y-[0.5px]">↗</span>
             </a>
           </div>
         ))}

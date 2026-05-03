@@ -9,9 +9,6 @@ export default function About() {
       <p className="text-[15px] text-[#5F5F5F] leading-[1.65] max-w-[620px]">
         {header.bio}
       </p>
-      <p className="text-sm text-[#9A9A9A] mt-4">
-        Note: Currently exploring subcultures and niches in software publishing.
-      </p>
     </div>
   );
 }
