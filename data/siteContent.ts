@@ -27,12 +27,12 @@ export const siteContent = {
       description: 'Supported client projects across branding, web design, and marketing materials. Learned fundamentals of user-centered design.'
     }
   ],
-  contact: {
-    email: 'alex@example.com',
-    socials: [
-      { name: 'LinkedIn', url: '#' },
-      { name: 'Twitter', url: '#' },
-      { name: 'Dribbble', url: '#' }
-    ]
-  }
+  contact: [
+    { label: "Email", value: "alex@example.com", href: "mailto:alex@example.com" },
+    { label: "Threads", value: "alex_design", href: "#" },
+    { label: "Figma", value: "alexmorgan", href: "#" },
+    { label: "Instagram", value: "alex.studio", href: "#" },
+    { label: "Bluesky", value: "alex.bsky.social", href: "#" },
+    { label: "X", value: "alexmorgan", href: "#" }
+  ]
 };
