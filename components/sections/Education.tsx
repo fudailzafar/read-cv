@@ -5,7 +5,7 @@ export default function Education() {
 
   return (
     <div className="mt-10 space-y-9">
-      <h3 className="text-[15px] font-medium text-text tracking-[-0.01em]">Education</h3>
+      <h3 className="text-[15px] font-normal text-text tracking-[-0.01em]">Education</h3>
 
       <div className="space-y-9">
         {education.map((edu, index) => (
@@ -14,7 +14,7 @@ export default function Education() {
               {edu.period}
             </span>
             <div>
-              <p className="text-base font-medium text-text leading-[1.4]">
+              <p className="text-base font-normal text-text leading-[1.4]">
                 {edu.degree} at {edu.institution}
               </p>
               <p className="text-sm text-[#7A7A7A] mt-1">

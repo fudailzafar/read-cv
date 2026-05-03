@@ -4,7 +4,7 @@ import type { BlogPostMetadata } from "@/lib/blog";
 export default function Writing({ posts }: { posts: BlogPostMetadata[] }) {
   return (
     <div className="mt-10 space-y-9">
-      <h3 className="text-[15px] font-medium text-text tracking-[-0.01em]">Writing</h3>
+      <h3 className="text-[15px] font-normal text-text tracking-[-0.01em]">Writing</h3>
 
       <div className="space-y-7">
         {posts.map((post, index) => (
@@ -15,7 +15,7 @@ export default function Writing({ posts }: { posts: BlogPostMetadata[] }) {
             <div>
               <Link
                 href={`/blog/${post.slug}`}
-                className="group inline-flex items-center gap-1.5 text-base font-medium text-text leading-[1.4]"
+                className="group inline-flex items-center gap-1.5 text-base font-normal text-text leading-[1.4]"
               >
                 {post.title}
                 <span className="text-[10px] text-[#999] opacity-60 group-hover:opacity-100 transition-opacity duration-150">

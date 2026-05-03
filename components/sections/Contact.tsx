@@ -5,7 +5,7 @@ export default function Contact() {
 
   return (
     <section className="mt-16 pt-12 border-t border-black/5">
-      <h2 className="mb-6 text-[15px] font-medium text-text">
+      <h2 className="mb-6 text-[15px] font-normal text-text">
         Contact
       </h2>
       

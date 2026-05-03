@@ -5,7 +5,7 @@ export default function WorkExperience() {
 
   return (
     <div className="mt-10 space-y-9">
-      <h3 className="text-[15px] font-medium text-text tracking-[-0.01em]">Work Experience</h3>
+      <h3 className="text-[15px] font-normal text-text tracking-[-0.01em]">Work Experience</h3>
 
       <div className="space-y-9">
         {experience.map((exp, index) => (
@@ -15,7 +15,7 @@ export default function WorkExperience() {
             </span>
             <div>
               <div className="flex items-baseline gap-1">
-                <p className="text-base font-medium text-text leading-[1.4]">
+                <p className="text-base font-normal text-text leading-[1.4]">
                   {exp.role} at {exp.company}
                 </p>
                 <span className="text-[10px] text-[#999]">↗</span>

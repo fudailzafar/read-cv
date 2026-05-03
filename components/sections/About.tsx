@@ -4,12 +4,12 @@ export default function About() {
   const { header } = siteContent;
 
   return (
-    <div className="space-y-4 max-w-[65ch]">
-      <p className="text-[#666] leading-relaxed text-[16px]">
+    <div className="mt-10">
+      <h3 className="text-[15px] font-normal text-text mb-3">About</h3>
+      <p className="text-[15px] text-[#5F5F5F] leading-[1.65] max-w-[620px]">
         {header.bio}
       </p>
-      
-      <p className="text-sm text-[#999]">
+      <p className="text-sm text-[#9A9A9A] mt-4">
         Note: Currently exploring subcultures and niches in software publishing.
       </p>
     </div>
