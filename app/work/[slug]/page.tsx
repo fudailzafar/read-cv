@@ -1,14 +1,42 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import FadeIn from "@/components/ui/FadeIn";
-import { siteContent } from "@/data/siteContent";
+import { getWorkBySlug, getAllWorkSlugs } from "@/lib/work";
+import { Metadata } from "next";
 
-export default function ProjectCaseStudy({ params }: { params: { slug: string } }) {
-  const project = siteContent.projects.find((p) => p.slug === params.slug);
+type Props = {
+  params: { slug: string };
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const project = await getWorkBySlug(params.slug);
+  if (!project) return { title: "Project Not Found" };
+
+  return {
+    title: `${project.metadata.title} - Alex Morgan`,
+    description: project.metadata.description,
+    openGraph: {
+      title: project.metadata.title,
+      description: project.metadata.description,
+      images: project.metadata.cover ? [{ url: project.metadata.cover }] : [],
+    },
+  };
+}
+
+export function generateStaticParams() {
+  const slugs = getAllWorkSlugs();
+  return slugs.map((slug) => ({ slug }));
+}
+
+export default async function WorkProject({ params }: Props) {
+  const project = await getWorkBySlug(params.slug);
 
   if (!project) {
     notFound();
   }
+
+  const { metadata, content } = project;
 
   return (
     <FadeIn>
@@ -20,71 +48,61 @@ export default function ProjectCaseStudy({ params }: { params: { slug: string } 
       </Link>
 
       <article>
-        <header className="mb-16">
-          <h1 className="mb-3 text-[40px] font-bold leading-[1.2] text-text tracking-[-0.02em]">
-            {project.title}
+        <header className="mb-12">
+          <h1 className="mb-6 text-[40px] font-bold leading-[1.2] text-text tracking-[-0.02em]">
+            {metadata.title}
           </h1>
-          <p className="mb-6 text-[17px] text-[#666] leading-[1.6]">
-            {project.subtitle}
-          </p>
-          <div className="flex gap-6 text-[14px]">
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 py-6 border-y border-black/5 mb-12">
+            {metadata.client && (
+              <div>
+                <h3 className="text-[12px] font-semibold text-muted uppercase tracking-widest mb-1">Client</h3>
+                <p className="text-[15px] text-text">{metadata.client}</p>
+              </div>
+            )}
+            {metadata.role && (
+              <div>
+                <h3 className="text-[12px] font-semibold text-muted uppercase tracking-widest mb-1">Role</h3>
+                <p className="text-[15px] text-text">{metadata.role}</p>
+              </div>
+            )}
             <div>
-              <span className="text-[#999]">Year:</span>{" "}
-              <span className="text-[#666]">{project.year}</span>
+              <h3 className="text-[12px] font-semibold text-muted uppercase tracking-widest mb-1">Date</h3>
+              <p className="text-[15px] text-text">{metadata.date}</p>
             </div>
-            <div>
-              <span className="text-[#999]">Role:</span>{" "}
-              <span className="text-[#666]">{project.role}</span>
-            </div>
+            {metadata.tags && (
+              <div>
+                <h3 className="text-[12px] font-semibold text-muted uppercase tracking-widest mb-1">Services</h3>
+                <p className="text-[15px] text-text">{metadata.tags.join(", ")}</p>
+              </div>
+            )}
           </div>
         </header>
 
-        <section className="mb-16">
-          <h2 className="mb-4 text-[11px] font-semibold text-[#999] uppercase tracking-[0.08em]">
-            Overview
-          </h2>
-          <p className="text-[16px] text-[#333] leading-[1.7] max-w-[65ch]">
-            {project.overview}
-          </p>
-        </section>
-
-        {/* Metrics */}
-        {project.metrics && (
-          <section className="mb-16 pb-16 border-b border-black/5">
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
-              {project.metrics.map((metric) => (
-                <div key={metric.label}>
-                  <div className="text-[28px] font-semibold text-text mb-1">
-                    {metric.value}
-                  </div>
-                  <div className="text-[13px] text-[#999]">
-                    {metric.label}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </section>
+        {metadata.cover && (
+          <div className="relative w-full aspect-[21/9] mb-16 rounded-xl overflow-hidden bg-border/50">
+            <Image
+              src={metadata.cover}
+              alt={metadata.title}
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
         )}
 
-        {/* Case study sections */}
-        {project.sections?.map((section, index) => (
-          <section key={index} className="mb-16">
-            <h2 className="mb-6 text-[24px] font-semibold text-text tracking-[-0.01em]">
-              {section.heading}
-            </h2>
-            <p className="text-[16px] text-[#333] leading-[1.7] max-w-[65ch]">
-              {section.content}
-            </p>
-          </section>
-        ))}
+        <div 
+          className="prose prose-neutral max-w-[70ch] mx-auto text-[16px] leading-[1.8] text-[#333] prose-headings:font-semibold prose-headings:tracking-tight prose-a:text-text prose-a:underline-offset-4 hover:prose-a:text-muted prose-pre:bg-[#F5F5F3] prose-pre:text-[#333] prose-pre:border prose-pre:border-[#EAEAEA] prose-code:text-[#111] prose-img:rounded-xl"
+          dangerouslySetInnerHTML={{ __html: content }} 
+        />
       </article>
 
-      <footer className="mt-16 pt-12 border-t border-black/5">
+      <footer className="mt-24 pt-12 border-t border-black/5 text-center">
         <Link
           href="/work"
-          className="text-[14px] text-[#666] hover:text-text transition-colors duration-150"
+          className="inline-block px-6 py-3 bg-text text-white rounded-full text-[14px] font-medium hover:bg-black/80 transition-colors"
         >
-          ← Back to all projects
+          View all projects
         </Link>
       </footer>
     </FadeIn>

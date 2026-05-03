@@ -1,9 +1,9 @@
 import Link from "next/link";
 import Section from "@/components/ui/Section";
-import { siteContent } from "@/data/siteContent";
+import { getSortedWork } from "@/lib/work";
 
 export default function Projects() {
-  const { projects } = siteContent;
+  const projects = getSortedWork();
 
   return (
     <Section title="Selected Projects">
