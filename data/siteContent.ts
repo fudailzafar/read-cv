@@ -100,12 +100,6 @@ export const siteContent = {
       ]
     }
   ],
-  writing: [
-    { title: 'Building design systems that scale', year: '2025', slug: 'design-systems-that-scale', content: 'In today’s fast-paced tech environment, a robust design system is not just a nice-to-have; it’s a critical infrastructure for scaling products efficiently...' },
-    { title: 'The future of mobile interfaces', year: '2024', slug: 'future-of-mobile-interfaces', content: 'As mobile devices evolve, so too must our interfaces. The shift towards gesture-based navigation and augmented reality is changing how we interact with technology.' },
-    { title: 'Design thinking in practice', year: '2024', slug: 'design-thinking-in-practice', content: 'Design thinking is often misunderstood as merely a creative process, but it is fundamentally a problem-solving methodology that centers around user needs.' },
-    { title: 'Minimalism in modern web design', year: '2023', slug: 'minimalism-in-web-design', content: 'Minimalism is more than just a visual aesthetic. It is a philosophy that prioritizes content and usability by removing unnecessary distractions.' }
-  ],
   contact: {
     email: 'alex@example.com',
     socials: [

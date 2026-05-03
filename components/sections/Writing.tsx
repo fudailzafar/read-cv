@@ -1,23 +1,23 @@
 import Link from "next/link";
 import Section from "@/components/ui/Section";
-import { siteContent } from "@/data/siteContent";
+import { getSortedPosts } from "@/lib/blog";
 
 export default function Writing() {
-  const { writing } = siteContent;
+  const posts = getSortedPosts();
 
   return (
     <Section title="Writing">
-      {writing.map((article, index) => (
+      {posts.map((post, index) => (
         <div key={index} className="flex justify-between items-baseline mb-5 group py-1">
           <Link
-            href={`/writing/${article.slug}`}
+            href={`/blog/${post.slug}`}
             className="relative inline-block text-[15px] text-text hover:opacity-60 transition-opacity duration-150"
           >
-            {article.title}
+            {post.title}
             <span className="underline-hover absolute bottom-0 left-0 w-full h-px bg-current" />
           </Link>
           <span className="text-[14px] text-[#999] font-normal">
-            {article.year}
+            {post.date}
           </span>
         </div>
       ))}
