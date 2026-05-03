@@ -16,10 +16,10 @@ export default function WorkExperience() {
               {exp.period}
             </span>
           </div>
-          <p className="mb-3 text-[15px] text-[#666] leading-[1.5]">
+          <p className="mb-3 text-[15px] text-[#666] leading-normal">
             {exp.role}
           </p>
-          <p className="text-[15px] text-[#666] leading-[1.65] max-w-[560px]">
+          <p className="text-[15px] text-[#666] leading-normal max-w-[560px]">
             {exp.description}
           </p>
         </div>
