@@ -27,6 +27,20 @@ export const siteContent = {
       description: 'Supported client projects across branding, web design, and marketing materials. Learned fundamentals of user-centered design.'
     }
   ],
+  education: [
+    {
+      institution: 'Rhode Island School of Design',
+      degree: "Bachelor's in Graphic Design",
+      period: '2013 — 2017',
+      location: 'Providence, RI'
+    },
+    {
+      institution: 'University of California, Berkeley',
+      degree: 'Summer Program in Interaction Design',
+      period: '2016 — 2016',
+      location: 'Berkeley, CA'
+    }
+  ],
   contact: [
     { label: "Email", value: "alex@example.com", href: "mailto:alex@example.com" },
     { label: "Threads", value: "alex_design", href: "#" },
@@ -34,5 +48,30 @@ export const siteContent = {
     { label: "Instagram", value: "alex.studio", href: "#" },
     { label: "Bluesky", value: "alex.bsky.social", href: "#" },
     { label: "X", value: "alexmorgan", href: "#" }
+  ],
+  speaking: [
+    {
+      year: '2024',
+      title: 'Designing for the Edges — Niche Products & Subculture UX',
+      location: 'Config 2024, San Francisco, CA',
+      href: '#'
+    },
+    {
+      year: '2023',
+      title: 'The Case for Slower Design Processes',
+      location: 'Awwwards Conference, Los Angeles, CA',
+      href: '#'
+    },
+    {
+      year: '2022',
+      title: 'Typography as Interface',
+      location: 'TYPO Berlin',
+      href: '#'
+    }
+  ],
+  sideProjects: [
+    { year: '2024', title: 'Palet — A color tool for designers', href: '#' },
+    { year: '2023', title: 'Griddy — Responsive grid explorer', href: '#' },
+    { year: '2022', title: 'Wordmark — Font discovery for brands', href: '#' }
   ]
 };

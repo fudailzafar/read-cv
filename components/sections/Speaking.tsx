@@ -1,30 +1,31 @@
-import Link from "next/link";
-import type { BlogPostMetadata } from "@/lib/blog";
+import { siteContent } from "@/data/siteContent";
 
-export default function Writing({ posts }: { posts: BlogPostMetadata[] }) {
+export default function Speaking() {
+  const { speaking } = siteContent;
+
   return (
     <div className="mt-10 space-y-9">
-      <h3 className="text-[15px] font-medium text-text tracking-[-0.01em]">Writing</h3>
+      <h3 className="text-[15px] font-medium text-text tracking-[-0.01em]">Speaking</h3>
 
       <div className="space-y-7">
-        {posts.map((post, index) => (
+        {speaking.map((item, index) => (
           <div key={index} className="grid grid-cols-1 md:grid-cols-[120px_1fr] gap-1 md:gap-4">
             <span className="text-sm text-[#8A8A8A] tracking-[0.02em] font-normal">
-              {new Date(post.date).getFullYear()}
+              {item.year}
             </span>
             <div>
-              <Link
-                href={`/blog/${post.slug}`}
+              <a
+                href={item.href}
                 className="group inline-flex items-center gap-1.5 text-base font-medium text-text leading-[1.4]"
               >
-                {post.title}
+                {item.title}
                 <span className="text-[10px] text-[#999] opacity-60 group-hover:opacity-100 transition-opacity duration-150">
                   ↗
                 </span>
-              </Link>
-              {post.description && (
-                <p className="text-sm text-[#6B6B6B] mt-1 max-w-[520px]">
-                  {post.description}
+              </a>
+              {item.location && (
+                <p className="text-sm text-[#6B6B6B] mt-1">
+                  {item.location}
                 </p>
               )}
             </div>
