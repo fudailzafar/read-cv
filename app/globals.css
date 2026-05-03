@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #FAFAFA;
+  --color-text: #111111;
+  --color-muted: #777777;
+  --color-border: rgba(0, 0, 0, 0.08);
+}
+
+:root {
+  --bg: #FAFAFA;
+  --text: #111111;
+  --muted: #777777;
+}
+
+@layer base {
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    line-height: 1.6;
+  }
+}
+
+.underline-hover {
+  transition: opacity 150ms ease;
+  opacity: 0;
+}
+
+a:hover .underline-hover,
+button:hover .underline-hover {
+  opacity: 1;
+}
