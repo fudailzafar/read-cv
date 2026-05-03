@@ -80,7 +80,7 @@ export default async function WorkProject({ params }: Props) {
         </header>
 
         {metadata.cover && (
-          <div className="relative w-full aspect-[21/9] mb-16 rounded-xl overflow-hidden bg-border/50">
+          <div className="relative w-full aspect-21/9 mb-16 rounded-xl overflow-hidden bg-border/50">
             <Image
               src={metadata.cover}
               alt={metadata.title}

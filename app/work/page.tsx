@@ -28,7 +28,7 @@ export default function WorkIndex() {
             <div key={index} className="group">
               <Link href={`/work/${project.slug}`} className="block">
                 {project.cover && (
-                  <div className="relative w-full aspect-[16/9] mb-6 overflow-hidden rounded-xl bg-border/50">
+                  <div className="relative w-full aspect-video mb-6 overflow-hidden rounded-xl bg-border/50">
                     <Image
                       src={project.cover}
                       alt={project.title}

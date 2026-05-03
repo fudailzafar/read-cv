@@ -1,8 +1,11 @@
 export const siteContent = {
   header: {
     name: 'Alex Morgan',
-    role: 'Product designer focused on creating intuitive and engaging experiences.',
+    role: 'Designer in San Francisco, He/Him',
+    website: 'alexmorgan.me',
     location: 'San Francisco, CA · Available for freelance',
+    avatar: '/profile-avatar.png',
+    bio: "I am a Canadian designer residing in Berkeley, California. Currently I'm exploring a more personally sustainable design practice through the means of independent software publishing. I'm interested in building and collaborating on software that caters to subcultures and niches."
   },
   experience: [
     {

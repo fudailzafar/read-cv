@@ -1,29 +1,32 @@
-import Section from "@/components/ui/Section";
 import { siteContent } from "@/data/siteContent";
 
 export default function WorkExperience() {
   const { experience } = siteContent;
 
   return (
-    <Section title="Work Experience">
-      {experience.map((exp, index) => (
-        <div key={index} className="mb-12 group">
-          <div className="flex justify-between items-baseline mb-2">
-            <h3 className="text-[17px] font-semibold text-text tracking-[-0.01em]">
-              {exp.company}
-            </h3>
-            <span className="text-[14px] text-[#999] font-normal">
+    <div className="mt-10 space-y-6">
+      <h3 className="text-sm font-medium text-text">Work Experience</h3>
+      
+      <div className="space-y-8">
+        {experience.map((exp, index) => (
+          <div key={index} className="grid grid-cols-1 md:grid-cols-[120px_1fr] gap-2 md:gap-4">
+            <span className="text-[14px] text-[#999] tabular-nums">
               {exp.period}
             </span>
+            <div>
+              <p className="text-[15px] font-medium text-text">
+                {exp.role} at {exp.company}
+              </p>
+              <p className="text-[14px] text-[#999] mt-0.5">
+                San Francisco, CA
+              </p>
+              <p className="text-[15px] text-[#666] leading-relaxed mt-3 max-w-[560px]">
+                {exp.description}
+              </p>
+            </div>
           </div>
-          <p className="mb-3 text-[15px] text-[#666] leading-normal">
-            {exp.role}
-          </p>
-          <p className="text-[15px] text-[#666] leading-normal max-w-[560px]">
-            {exp.description}
-          </p>
-        </div>
-      ))}
-    </Section>
+        ))}
+      </div>
+    </div>
   );
 }
